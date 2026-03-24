@@ -1,0 +1,13 @@
+<suite name="Playwright Suite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="E2E Tests" parallel="classes" thread-count="4">
+                <classes>
+            <class name="tests.uitests.LoginTests"/>
+            <class name="tests.uitests.CartTests"/>
+            <class name="tests.uitests.SearchTests"/>
+            <class name="tests.uitests.CheckoutTests"/>
+        </classes>
+    </test>
+</suite>
