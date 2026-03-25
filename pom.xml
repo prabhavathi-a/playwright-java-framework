@@ -92,6 +92,7 @@
                     </suiteXmlFiles>
 
                     <systemPropertyVariables>
+                        <headless>true</headless>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
