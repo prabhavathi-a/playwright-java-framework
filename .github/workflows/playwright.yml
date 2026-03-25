@@ -26,10 +26,18 @@ jobs:
 
       - name: Install Playwright Browsers
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
-
+      - name: Check site reachability
+        run: |
+          curl -v --max-time 10 https://practicesoftwaretesting.com
+          echo "Exit code: $?"
       - name: Run Playwright Tests
         run: mvn test
-
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: failure-screenshots
+          path: target/screenshots/
       - name: Load Allure History
         uses: actions/checkout@v4
         if: always()
