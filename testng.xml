@@ -2,7 +2,7 @@
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
-    <test name="E2E Tests" parallel="classes" thread-count="4">
+    <test name="E2E Tests" parallel="classes" thread-count="2">
                 <classes>
             <class name="tests.uitests.LoginTests"/>
             <class name="tests.uitests.CartTests"/>

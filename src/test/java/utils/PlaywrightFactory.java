@@ -15,8 +15,10 @@ public class PlaywrightFactory {
         playwright.get().selectors().setTestIdAttribute("data-test");
         switch (browserName.toLowerCase()) {
             case "chromium":
+                boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+
                 browser.set(playwright.get().chromium().launch(
-                        new BrowserType.LaunchOptions().setHeadless(false)
+                        new BrowserType.LaunchOptions().setHeadless(isHeadless)
                 ));
                 break;
 

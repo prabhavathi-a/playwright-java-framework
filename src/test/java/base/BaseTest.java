@@ -6,6 +6,7 @@ import com.microsoft.playwright.Tracing;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.PlaywrightFactory;
+import utils.ScreenshotManager;
 
 import java.nio.file.Path;
 
@@ -36,6 +37,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown(ITestResult result) {
+        ScreenshotManager.takeScreenshot("Before_Teardown_" + result.getMethod().getMethodName());
         String testName=result.getMethod().getMethodName();
         Path path=Path.of("target/traces", testName + ".zip");
         PlaywrightFactory.getContext().tracing().stop(new Tracing.StopOptions()
