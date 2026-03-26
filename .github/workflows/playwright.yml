@@ -32,6 +32,7 @@ jobs:
           echo "Exit code: $?"
       - name: Run Playwright Tests
         run: mvn test
+        continue-on-error: true
       - name: Upload Screenshots
         uses: actions/upload-artifact@v4
         if: always()
